@@ -152,11 +152,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <ul>
   <li><a href="#setting-up-software-essentials" id="toc-setting-up-software-essentials" class="nav-link active" data-scroll-target="#setting-up-software-essentials">Setting up software essentials</a></li>
   <li><a href="#coding-resources-for-r" id="toc-coding-resources-for-r" class="nav-link" data-scroll-target="#coding-resources-for-r">Coding resources for R</a></li>
-  <li><a href="#rstudio-proj" id="toc-rstudio-proj" class="nav-link" data-scroll-target="#rstudio-proj">RStudio and project-oriented workflows</a></li>
-  <li><a href="#git-github" id="toc-git-github" class="nav-link" data-scroll-target="#git-github">Git and GitHub</a>
+  <li><a href="#sec-rstudio-proj" id="toc-sec-rstudio-proj" class="nav-link" data-scroll-target="#sec-rstudio-proj">RStudio and project-oriented workflows</a></li>
+  <li><a href="#sec-git-github" id="toc-sec-git-github" class="nav-link" data-scroll-target="#sec-git-github">Git and GitHub</a>
   <ul class="collapse">
   <li><a href="#making-an-account-on-github" id="toc-making-an-account-on-github" class="nav-link" data-scroll-target="#making-an-account-on-github">Making an account on GitHub</a></li>
-  <li><a href="#gh-auth" id="toc-gh-auth" class="nav-link" data-scroll-target="#gh-auth">Connecting your system to your GitHub account</a></li>
+  <li><a href="#sec-gh-auth" id="toc-sec-gh-auth" class="nav-link" data-scroll-target="#sec-gh-auth">Connecting your system to your GitHub account</a></li>
   <li><a href="#cloning-a-repository-in-rstudio" id="toc-cloning-a-repository-in-rstudio" class="nav-link" data-scroll-target="#cloning-a-repository-in-rstudio">Cloning a repository (in RStudio)</a></li>
   <li><a href="#commits-pushes-and-pulls" id="toc-commits-pushes-and-pulls" class="nav-link" data-scroll-target="#commits-pushes-and-pulls">Commits, pushes and pulls</a></li>
   </ul></li>
@@ -208,10 +208,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Hadley free textbooks</p>
 <p>some packages, tidyverse</p>
 </section>
-<section id="rstudio-proj" class="level1">
+<section id="sec-rstudio-proj" class="level1">
 <h1>RStudio and project-oriented workflows</h1>
 </section>
-<section id="git-github" class="level1">
+<section id="sec-git-github" class="level1">
 <h1>Git and GitHub</h1>
 <p><a href="https://git-scm.com/">Git</a> is an open-source version control system (VCS) that lives locally on your specified directories in your system. Think of it as an all-seeing eye that intelligently tracks changes in files. Because files in a project evolve in unbelievably complex ways, and often have multiple people making changes to them, Git becomes incredibly useful in managing the project itself.</p>
 <p>On the other hand, <a href="https://github.com">GitHub</a> is a cloud-based developer platform that allows distributed version control. It essentially leverages your locally living Git information and hosts it online, thereby allowing you to more efficiently and easily manage, track, collaborate and share your work. Although alternative platforms exist like GitLab and BitBucket, GitHub is the most popular and our lab too uses it for developing code, collaborating, and much else.</p>
@@ -240,8 +240,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>For further reading about what you can do with your GitHub account, see this <a href="https://docs.github.com/en/get-started/onboarding/getting-started-with-your-github-account">documentation</a>.</li>
 </ol>
 </section>
-<section id="gh-auth" class="level2">
-<h2 class="anchored" data-anchor-id="gh-auth">Connecting your system to your GitHub account</h2>
+<section id="sec-gh-auth" class="level2">
+<h2 class="anchored" data-anchor-id="sec-gh-auth">Connecting your system to your GitHub account</h2>
 <p>Because Git lives locally and GitHub is cloud-based (also called “remote” in Git lingo), you will need to authenticate the connection between the two. There are two methods of authentication, HTTPS and SSH. HTTPS is the recommended option and also allows the use of credential helpers so you do not need to authenticate every time you make a change. (Read more about remote repositories and HTTPS vs SSH <a href="https://docs.github.com/en/get-started/git-basics/about-remote-repositories">here</a>.)</p>
 <p>There are two general methods to cache your GitHub credentials in Git: either using the command line interface or a special credential manager software (read more <a href="https://docs.github.com/en/get-started/git-basics/caching-your-github-credentials-in-git">here</a>). However, for those of us who use R, there is an even easier method! The required code is given below and can be copied into your R session. See detailed instructions <a href="https://usethis.r-lib.org/articles/git-credentials.html#git-credential-helpers-and-the-credential-store">here</a>.</p>
 <ol type="1">
@@ -261,14 +261,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="cloning-a-repository-in-rstudio" class="level2">
 <h2 class="anchored" data-anchor-id="cloning-a-repository-in-rstudio">Cloning a repository (in RStudio)</h2>
 <p>One of the biggest advantages to using Git and GitHub is how easy it becomes to share and collaborate on projects. The fundamental step here to get familiarised with is cloning a GitHub repository.</p>
-<p>By now, you have a basic idea about project-oriented workflows (<strong>?@sec-rstudio-proj</strong>) and Git repositories (<strong>?@sec-git-github</strong>). Cloning a GitHub repository is essentially creating a local copy of the project using the latest version available on the “remote”. You will recall the two methods of authenticating the Git-GitHub connection (<strong>?@sec-gh-auth</strong>); depending on which one you chose for your GitHub account authentication, select the appropriate URL to clone the repo.</p>
+<p>By now, you have a basic idea about project-oriented workflows (<a href="#sec-rstudio-proj" class="quarto-xref">Section&nbsp;3</a>) and Git repositories (<a href="#sec-git-github" class="quarto-xref">Section&nbsp;4</a>). Cloning a GitHub repository is essentially creating a local copy of the project using the latest version available on the “remote”. You will recall the two methods of authenticating the Git-GitHub connection (<a href="#sec-gh-auth" class="quarto-xref">Section&nbsp;4.2</a>); depending on which one you chose for your GitHub account authentication, select the appropriate URL to clone the repo.</p>
 <ol type="1">
-<li>Go to the repository you want to clone, e.g., https://github.com/montanolab/toolbox</li>
+<li>Go to the repository you want to clone, e.g., <a href="https://github.com/montanolab/toolbox">https://github.com/montanolab/toolbox</a></li>
 <li>Click on the green button saying <code>&lt;&gt; Code</code></li>
-<li>Select between HTTPS and SSH options, depending on how you have authenticated your GitHub account</li>
-<li>Copy URL to clipboard using the icon to the right of the URL</li>
+<li>Select between HTTPS and SSH options (depending on how you have authenticated your GitHub account) and copy the URL to clipboard</li>
 <li>Open RStudio</li>
-<li>File in top-left or R Project icon in top-right –&gt; New Project –&gt; Version Control –&gt; Git</li>
+<li>File (in top-left) or R Project icon (in top-right) –&gt; New Project –&gt; Version Control –&gt; Git</li>
 <li>In the “Repository URL” field, paste the copied URL. “Project directory name” will autofill with the repo name (recommended to not change it, so easier to associate the local repo with the remote). For “Create project as subdirectory of”, browse and select the higher-order folder where you want this <em>new folder</em> to be created.</li>
 <li>Click on “Create Project”</li>
 </ol>

@@ -7,5 +7,6 @@ This documentation was created using inspiration and tips from various sources, 
 
 - GK Lab at LSU ([website](https://gklab.org/))
 - Li Lab at University of Arizona ([website](https://www.dlilab.com/))
+- Nature Conservation Foundation's Zenodo Repository ([link](https://zenodo.org/communities/ncfindia/records?q=&l=list&p=1&s=10&sort=newest))
 
 The page was developed by Karthik Thrikkadeeri and Flavia Montaño-Centellas. Thanks to ___ for useful suggestions and feedback. 
