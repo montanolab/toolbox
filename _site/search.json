@@ -1,0 +1,51 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Toolbox",
+    "section": "",
+    "text": "Our research uses big data, computational techniques and macroecological techniques, but also generates new data through field work and documents relevant observations of natural history. As such, good data and code practices that enable collaboration and reproducibility are a strong priority.\nSince many of these practices involve very steep learning curves, it will take sustained practice to get familiar with them and develop expertise. However, the payoff for these practices compounds over time, much like a return on investment, and will become invaluable assets in one’s research toolkit. It is important to not feel discouraged if you feel lost in the early days!\nThis page therefore serves as a guide to frequently return to, whether it is to set up your software from scratch, or to clarify some critical point you have forgotten, or even to try and troubleshoot issues with your own computation or setup."
+  },
+  {
+    "objectID": "index.html#setting-up",
+    "href": "index.html#setting-up",
+    "title": "Toolbox",
+    "section": "Setting up",
+    "text": "Setting up\nTo get set up with your computing environment, your computer needs some software essentials. Download and install the latest versions (for your respective OS) of:\n\nR from the CRAN website (link)\nRStudio from the Posit website (link)\nGit from the Git-Scm website (link). If using Windows, please verify that this also installs GitBash onto your computer."
+  },
+  {
+    "objectID": "index.html#coding-resources-for-r",
+    "href": "index.html#coding-resources-for-r",
+    "title": "Toolbox",
+    "section": "Coding resources for R",
+    "text": "Coding resources for R\nHadley free textbooks\nsome packages, tidyverse"
+  },
+  {
+    "objectID": "index.html#rstudio-proj",
+    "href": "index.html#rstudio-proj",
+    "title": "Toolbox",
+    "section": "RStudio and project-oriented workflows",
+    "text": "RStudio and project-oriented workflows"
+  },
+  {
+    "objectID": "index.html#git-github",
+    "href": "index.html#git-github",
+    "title": "Toolbox",
+    "section": "Git and GitHub",
+    "text": "Git and GitHub\nGit is an open-source version control system (VCS) that lives locally on your specified directories in your system. Think of it as an all-seeing eye that intelligently tracks changes in files. Because files in a project evolve in unbelievably complex ways, and often have multiple people making changes to them, Git becomes incredibly useful in managing the project itself.\nOn the other hand, GitHub is a cloud-based developer platform that allows distributed version control. It essentially leverages your locally living Git information and hosts it online, thereby allowing you to more efficiently and easily manage, track, collaborate and share your work. Although alternative platforms exist like GitLab and BitBucket, GitHub is the most popular and our lab too uses it for developing code, collaborating, and much else.\nDelve deeper:\n\nGit lets you time travel\nHow to set up Git on your system\nThe Git-GitHub relationship\n\n\n\n\n\n\n\nRemember, there is a substantial learning curve to integrating Git and GitHub into your workflow, so don’t feel like you have to be an expert on day 1 (or even by the end of year 1)! The process can be very frustrating at times, but sticking with it is key!\n\n\n\n\nMaking an account on GitHub\nGet set up with GitHub:\n\nCreate a GitHub account using the instructions here, if you don’t have one already.\nShare your GitHub username with Flavia, so she can add you to the lab’s GitHub page which houses repositories of our research projects as well as other useful resources.\nFor further reading about what you can do with your GitHub account, see this documentation.\n\n\n\nConnecting your system to your GitHub account\nBecause Git lives locally and GitHub is cloud-based (also called “remote” in Git lingo), you will need to authenticate the connection between the two. There are two methods of authentication, HTTPS and SSH. HTTPS is the recommended option and also allows the use of credential helpers so you do not need to authenticate every time you make a change. (Read more about remote repositories and HTTPS vs SSH here.)\nThere are two general methods to cache your GitHub credentials in Git: either using the command line interface or a special credential manager software (read more here). However, for those of us who use R, there is an even easier method! The required code is given below and can be copied into your R session. See detailed instructions here.\n\nInstall the R package usethis (which automatically also installs the dependency gitcreds)\nGet a personal access token (PAT): if you are signed in to GitHub, you will be taken to a pre-filled form to generate a PAT. It is recommended to give descriptive names for each token in the “Note” field, such as the computer or project it is for (e.g., “karthik-laptop” or “karthik-montano-lab-server”). Once generated, make sure to copy it to clipboard before closing the page. You can paste it in a temporary file if you cannot immediately proceed to the next step.\nCache your PAT locally: when you run gitcreds_set() you will be prompted to enter your PAT, so just paste the copied token.\n\n# install packages\ninstall.packages(\"usethis\")\n\n# get PAT\nusethis::create_github_token()\n\n# cache PAT\ngitcreds::gitcreds_set()\n\n\nCloning a repository (in RStudio)\nOne of the biggest advantages to using Git and GitHub is how easy it becomes to share and collaborate on projects. The fundamental step here to get familiarised with is cloning a GitHub repository.\nBy now, you have a basic idea about project-oriented workflows (?@sec-rstudio-proj) and Git repositories (?@sec-git-github). Cloning a GitHub repository is essentially creating a local copy of the project using the latest version available on the “remote”. You will recall the two methods of authenticating the Git-GitHub connection (?@sec-gh-auth); depending on which one you chose for your GitHub account authentication, select the appropriate URL to clone the repo.\n\nGo to the repository you want to clone, e.g., https://github.com/montanolab/toolbox\nClick on the green button saying &lt;&gt; Code\nSelect between HTTPS and SSH options, depending on how you have authenticated your GitHub account\nCopy URL to clipboard using the icon to the right of the URL\nOpen RStudio\nFile in top-left or R Project icon in top-right –&gt; New Project –&gt; Version Control –&gt; Git\nIn the “Repository URL” field, paste the copied URL. “Project directory name” will autofill with the repo name (recommended to not change it, so easier to associate the local repo with the remote). For “Create project as subdirectory of”, browse and select the higher-order folder where you want this new folder to be created.\nClick on “Create Project”\n\nThis method is also recommended when starting a new project repo from scratch. That is, first create a new repo on GitHub, then clone it locally which also creates a new R Project in the process.\n\n\nCommits, pushes and pulls\nOnce you have the necessary software and credentials set up, actually implementing Git in your workflow involves these three fundamental steps.\nA commit is best thought of as a higher-order version of saving a file. Similar to saving a file that’s been edited, a commit records changes to one or more files (which may or may not be text-based) in your directory. You can save small sets of meaningful changes to your files as commits, and also give each commit a meaningful and descriptive message describing the change(s).\nCommits are a series of check-ins with your local all-seeing eye. Eventually, say at the end of one continuous work session, you will want to update your GitHub repo (i.e., the remote) with all these changes. For this, you need to “push” the commits up to the remote. On the other hand, if there are updates on the remote (e.g., your collaborator has added an analysis), you will want to retrieve those locally, for which you need to “pull” changes from the remote. It is good practice to always pull before starting a new work session, to ensure you are working on the latest version and to prevent “conflicts” later.\nOnce again, repeated practice is required to get comfortable with this workflow. Read more about commits here."
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "About this site"
+  },
+  {
+    "objectID": "acknowledgements.html",
+    "href": "acknowledgements.html",
+    "title": "Acknowledgements",
+    "section": "",
+    "text": "This documentation was created using inspiration and tips from various sources, some of which are listed below. (Others are linked at specific locations.)\n\nGK Lab at LSU (website)\nLi Lab at University of Arizona (website)\n\nThe page was developed by Karthik Thrikkadeeri and Flavia Montaño-Centellas. Thanks to ___ for useful suggestions and feedback."
+  }
+]

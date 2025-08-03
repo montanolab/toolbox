@@ -1,0 +1,116 @@
+---
+title: "Toolbox"
+---
+
+Our research uses big data, computational techniques and macroecological techniques, but also generates new data through field work and documents relevant observations of natural history. As such, good data and code practices that enable collaboration and reproducibility are a strong priority. 
+
+Since many of these practices involve very steep learning curves, it will take sustained practice to get familiar with them and develop expertise. However, the payoff for these practices compounds over time, much like a return on investment, and will become invaluable assets in one's research toolkit. *It is important to not feel discouraged if you feel lost in the early days!* 
+
+This page therefore serves as a guide to frequently return to, whether it is to set up your software from scratch, or to clarify some critical point you have forgotten, or even to try and troubleshoot issues with your own computation or setup.  
+
+# Software 
+
+As of 2025, most lab members primarily use the R programming language for most steps of the data analysis pipeline, only using spreadsheets to enter and clean up data. GIS tasks are performed in either ArcGIS (proprietary) or QGIS (free and open source). Manuscript writing is usually done in conventional word processing software like MS Word or GDocs, although Quarto/R Markdown is a promising alternative with several benefits like painless formatting and typesetting, efficient version control, and direct linking between data and output. Other software used less frequently include Raven Pro and Praat for audio analysis, BORIS for behaviour data, MARK, DISTANCE and BEAST. 
+
+Most of these tools, especially those living in the [free and open source (FOSS)](https://en.wikipedia.org/wiki/Free_and_open-source_software) universe, have tons of resources available online, including instructive videos on YouTube. These are incredibly useful to get a better sense of what each of these does and how to use them. You will find links to a few such resources in the respective sections.
+
+## Setting up
+
+To get set up with your computing environment, your computer needs some software essentials. Download and install the latest versions (for your respective OS) of:
+
+- R from the CRAN website ([link](https://www.r-project.org/))
+- RStudio from the Posit website ([link](https://posit.co/download/rstudio-desktop/))
+- Git from the Git-Scm website ([link](https://git-scm.com/downloads)). *If using Windows, please verify that this also installs GitBash onto your computer.*
+
+## Coding resources for R
+
+Hadley free textbooks
+
+some packages, tidyverse
+
+## RStudio and project-oriented workflows {#rstudio-proj}
+
+
+
+## Git and GitHub {#git-github}
+
+[Git](https://git-scm.com/) is an open-source version control system (VCS) that lives locally on your specified directories in your system. Think of it as an all-seeing eye that intelligently tracks changes in files. Because files in a project evolve in unbelievably complex ways, and often have multiple people making changes to them, Git becomes incredibly useful in managing the project itself. 
+
+On the other hand, [GitHub](https://github.com) is a cloud-based developer platform that allows distributed version control. It essentially leverages your locally living Git information and hosts it online, thereby allowing you to more efficiently and easily manage, track, collaborate and share your work. Although alternative platforms exist like GitLab and BitBucket, GitHub is the most popular and our lab too uses it for developing code, collaborating, and much else. 
+
+Delve deeper:
+
+- [Git lets you time travel](https://www.youtube.com/watch?v=eWxxfttcMts)
+- [How to set up Git on your system](https://docs.github.com/en/get-started/git-basics/set-up-git)
+- [The Git-GitHub relationship](https://docs.github.com/en/get-started/start-your-journey/about-github-and-git)
+
+::: {.callout-tip  appearance="minimal"}
+Remember, there is a **substantial learning curve** to integrating Git and GitHub into your workflow, so don't feel like you have to be an expert on day 1 (or even by the end of year 1)! The process can be very frustrating at times, but **sticking with it is key**!
+:::
+
+### Making an account on GitHub
+
+Get set up with GitHub:
+
+1. Create a GitHub account using the instructions [here](https://docs.github.com/en/get-started/start-your-journey/creating-an-account-on-github), if you don't have one already.
+1. Share your GitHub username with Flavia, so she can add you to the lab's [GitHub page](https://github.com/montanolab) which houses repositories of our research projects as well as other useful resources.
+1. For further reading about what you can do with your GitHub account, see this [documentation](https://docs.github.com/en/get-started/onboarding/getting-started-with-your-github-account).
+
+### Connecting your system to your GitHub account {#gh-auth}
+
+Because Git lives locally and GitHub is cloud-based (also called "remote" in Git lingo), you will need to authenticate the connection between the two. There are two methods of authentication, HTTPS and SSH. HTTPS is the recommended option and also allows the use of credential helpers so you do not need to authenticate every time you make a change. (Read more about remote repositories and HTTPS vs SSH [here](https://docs.github.com/en/get-started/git-basics/about-remote-repositories).)
+
+There are two general methods to cache your GitHub credentials in Git: either using the command line interface or a special credential manager software (read more [here](https://docs.github.com/en/get-started/git-basics/caching-your-github-credentials-in-git)). However, for those of us who use R, there is an even easier method! The required code is given below and can be copied into your R session. See detailed instructions [here](https://usethis.r-lib.org/articles/git-credentials.html#git-credential-helpers-and-the-credential-store).
+
+1. Install the R package `usethis` (which automatically also installs the dependency `gitcreds`)
+1. Get a personal access token (PAT): if you are signed in to GitHub, you will be taken to a pre-filled form to generate a PAT. It is recommended to give descriptive names for each token in the "Note" field, such as the computer or project it is for (e.g., "karthik-laptop" or "karthik-montano-lab-server"). Once generated, *make sure to copy it to clipboard* before closing the page. You can paste it in a temporary file if you cannot immediately proceed to the next step.
+1. Cache your PAT locally: when you run `gitcreds_set()` you will be prompted to enter your PAT, so just paste the copied token.
+
+```r 
+# install packages
+install.packages("usethis")
+
+# get PAT
+usethis::create_github_token()
+
+# cache PAT
+gitcreds::gitcreds_set()
+
+```
+
+### Cloning a repository (in RStudio)
+
+One of the biggest advantages to using Git and GitHub is how easy it becomes to share and collaborate on projects. The fundamental step here to get familiarised with is cloning a GitHub repository.
+
+By now, you have a basic idea about project-oriented workflows (@sec-rstudio-proj) and Git repositories (@sec-git-github). Cloning a GitHub repository is essentially creating a local copy of the project using the latest version available on the "remote". You will recall the two methods of authenticating the Git-GitHub connection (@sec-gh-auth); depending on which one you chose for your GitHub account authentication, select the appropriate URL to clone the repo. 
+
+1. Go to the repository you want to clone, e.g., https://github.com/montanolab/toolbox
+1. Click on the green button saying `<> Code`
+1. Select between HTTPS and SSH options, depending on how you have authenticated your GitHub account
+1. Copy URL to clipboard using the icon to the right of the URL
+1. Open RStudio
+1. File in top-left or R Project icon in top-right --> New Project --> Version Control --> Git
+1. In the "Repository URL" field, paste the copied URL. "Project directory name" will autofill with the repo name (recommended to not change it, so easier to associate the local repo with the remote). For "Create project as subdirectory of", browse and select the higher-order folder where you want this *new folder* to be created. 
+1. Click on "Create Project"
+
+This method is also recommended when starting a new project repo from scratch. That is, first create a new repo on GitHub, then clone it locally which also creates a new R Project in the process.
+
+### Commits, pushes and pulls
+
+Once you have the necessary software and credentials set up, actually implementing Git in your workflow involves these three fundamental steps.
+
+A commit is best thought of as a higher-order version of saving a file. Similar to saving a file that's been edited, a commit records changes to one or more files (which may or may not be text-based) in your directory. You can save small sets of meaningful changes to your files as commits, and also give each commit a meaningful and descriptive message describing the change(s). 
+
+Commits are a series of check-ins with your local all-seeing eye. Eventually, say at the end of one continuous work session, you will want to update your GitHub repo (i.e., the remote) with all these changes. For this, you need to "push" the commits up to the remote. On the other hand, if there are updates on the remote (e.g., your collaborator has added an analysis), you will want to retrieve those locally, for which you need to "pull" changes from the remote. It is good practice to always pull before starting a new work session, to ensure you are working on the latest version and to prevent "conflicts" later.
+
+Once again, repeated practice is required to get comfortable with this workflow. Read more about commits [here](https://docs.github.com/en/pull-requests/committing-changes-to-your-project/creating-and-editing-commits/about-commits).
+
+# Computation
+
+
+
+# Zenodo
+
+
+
+# Zotero

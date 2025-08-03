@@ -1,0 +1,11 @@
+---
+title: "Acknowledgements"
+format: html
+---
+
+This documentation was created using inspiration and tips from various sources, some of which are listed below. (Others are linked at specific locations.)
+
+- GK Lab at LSU ([website](https://gklab.org/))
+- Li Lab at University of Arizona ([website](https://www.dlilab.com/))
+
+The page was developed by Karthik Thrikkadeeri and Flavia Montaño-Centellas. Thanks to ___ for useful suggestions and feedback. 

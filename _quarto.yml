@@ -1,0 +1,22 @@
+project:
+  type: website
+
+website:
+  title: "Montaño Lab Toolbox"
+  navbar:
+    left:
+      - href: index.qmd
+        text: Home
+      - about.qmd
+      - acknowledgements.qmd
+
+format:
+  html:
+    theme:
+      - cosmo
+      - brand
+    css: styles.css
+    toc: true
+
+
+
