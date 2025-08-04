@@ -13,8 +13,9 @@ website:
 format:
   html:
     theme:
-      - cosmo
+      - sandstone
       - brand
+    linkcolor: "#009E60"
     css: styles.css
     toc: true
 
