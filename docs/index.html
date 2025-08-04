@@ -127,10 +127,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./about.html"> 
-<span class="menu-text">About</span></a>
-  </li>  
-  <li class="nav-item">
     <a class="nav-link" href="./acknowledgements.html"> 
 <span class="menu-text">Acknowledgements</span></a>
   </li>  
@@ -151,8 +147,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
    
   <ul>
   <li><a href="#setting-up-software-essentials" id="toc-setting-up-software-essentials" class="nav-link active" data-scroll-target="#setting-up-software-essentials">Setting up software essentials</a></li>
-  <li><a href="#coding-resources-for-r" id="toc-coding-resources-for-r" class="nav-link" data-scroll-target="#coding-resources-for-r">Coding resources for R</a></li>
+  <li><a href="#r-and-rstudio" id="toc-r-and-rstudio" class="nav-link" data-scroll-target="#r-and-rstudio">R and RStudio</a>
+  <ul class="collapse">
   <li><a href="#sec-rstudio-proj" id="toc-sec-rstudio-proj" class="nav-link" data-scroll-target="#sec-rstudio-proj">RStudio and project-oriented workflows</a></li>
+  <li><a href="#other-resources-for-r" id="toc-other-resources-for-r" class="nav-link" data-scroll-target="#other-resources-for-r">Other resources for R</a></li>
+  </ul></li>
   <li><a href="#sec-git-github" id="toc-sec-git-github" class="nav-link" data-scroll-target="#sec-git-github">Git and GitHub</a>
   <ul class="collapse">
   <li><a href="#making-an-account-on-github" id="toc-making-an-account-on-github" class="nav-link" data-scroll-target="#making-an-account-on-github">Making an account on GitHub</a></li>
@@ -160,9 +159,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#cloning-a-repository-in-rstudio" id="toc-cloning-a-repository-in-rstudio" class="nav-link" data-scroll-target="#cloning-a-repository-in-rstudio">Cloning a repository (in RStudio)</a></li>
   <li><a href="#commits-pushes-and-pulls" id="toc-commits-pushes-and-pulls" class="nav-link" data-scroll-target="#commits-pushes-and-pulls">Commits, pushes and pulls</a></li>
   </ul></li>
-  <li><a href="#computation" id="toc-computation" class="nav-link" data-scroll-target="#computation">Computation</a></li>
-  <li><a href="#zenodo" id="toc-zenodo" class="nav-link" data-scroll-target="#zenodo">Zenodo</a></li>
-  <li><a href="#zotero" id="toc-zotero" class="nav-link" data-scroll-target="#zotero">Zotero</a></li>
+  <li><a href="#bibliography-management" id="toc-bibliography-management" class="nav-link" data-scroll-target="#bibliography-management">Bibliography management</a></li>
+  <li><a href="#project-archival" id="toc-project-archival" class="nav-link" data-scroll-target="#project-archival">Project archival</a></li>
   </ul>
 </nav>
     </div>
@@ -192,8 +190,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Since many of these practices involve very steep learning curves, it will take sustained practice to get familiar with them and develop expertise. However, the payoff for these practices compounds over time, much like a return on investment, and will become invaluable assets in one’s research toolkit. <em>It is important to not feel discouraged if you feel lost in the early days!</em></p>
 <p>This page therefore serves as a guide to frequently return to, whether it is to set up your software from scratch, or to clarify some critical point you have forgotten, or even to try and troubleshoot issues with your own computation or setup.</p>
 <hr>
-<p>As of 2025, most lab members primarily use the R programming language for most steps of the data analysis pipeline, only using spreadsheets to enter and clean up data. GIS tasks are performed in either ArcGIS (proprietary) or QGIS (free and open source). Manuscript writing is usually done in conventional word processing software like MS Word or GDocs, although Quarto/R Markdown is a promising alternative with several benefits like painless formatting and typesetting, efficient version control, and direct linking between data and output. Other software used less frequently include Raven Pro and Praat for audio analysis, BORIS for behaviour data, MARK, DISTANCE and BEAST.</p>
-<p>Most of these tools, especially those living in the <a href="https://en.wikipedia.org/wiki/Free_and_open-source_software">free and open source (FOSS)</a> universe, have tons of resources available online, including instructive videos on YouTube. These are incredibly useful to get a better sense of what each of these does and how to use them. You will find links to a few such resources in the respective sections.</p>
+<p>As of 2025, lab members primarily use the R programming language for most steps of the data analysis pipeline, only using spreadsheets to enter and clean up data. GIS tasks are performed in either ArcGIS (proprietary) or QGIS (<a href="https://en.wikipedia.org/wiki/Free_and_open-source_software">free and open source, FOSS</a>). Manuscript writing is usually done in conventional word processing software like MS Word (or FOSS alternative like LibreOffice Writer) or GDocs, although Quarto/R Markdown is a promising alternative with several benefits like painless formatting and typesetting, efficient version control, and direct linking between data and output. Other software used less frequently include Raven Pro and Praat for audio analysis, BORIS for behaviour data, MARK, DISTANCE and BEAST.</p>
+<p>Most of these tools, especially those living in the FOSS universe, have tons of resources available online, including instructive videos on YouTube. These are incredibly useful to get a better sense of what each of these does and how to use them. You will find links to a few such resources in the respective sections.</p>
 <section id="setting-up-software-essentials" class="level1">
 <h1>Setting up software essentials</h1>
 <p>To get set up with your computing environment, your computer needs some software essentials. Download and install the latest versions (for your respective OS) of:</p>
@@ -203,18 +201,39 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>Git from the Git-Scm website (<a href="https://git-scm.com/downloads">link</a>). <em>If using Windows, please verify that this also installs GitBash onto your computer.</em></li>
 </ul>
 </section>
-<section id="coding-resources-for-r" class="level1">
-<h1>Coding resources for R</h1>
-<p>Hadley free textbooks</p>
-<p>some packages, tidyverse</p>
+<section id="r-and-rstudio" class="level1">
+<h1>R and RStudio</h1>
+<section id="sec-rstudio-proj" class="level2">
+<h2 class="anchored" data-anchor-id="sec-rstudio-proj">RStudio and project-oriented workflows</h2>
+<p>Typically, you end up working on multiple “things” over the course of a day, week or month. These can be individual research projects, coursework and assignments, and more. Each of these also likely involves working with multiple files, which usually means using file paths to reference them. Absolute file paths are the biggest enemy of shareability of your code, and more broadly its reproducibility. Not having all the files required for a specific project in a single directory is a close second.</p>
+<p>In a research lab setting, where analyses often span months or years and involve multiple contributors, <a href="https://www.tidyverse.org/blog/2017/12/workflow-vs-script/">project-oriented workflows</a> ensure that data, code, outputs, and documentation remain organized and interconnected. Such a workflow, centered around a self-contained project folder with consistent structure, promotes <strong>reproducibility, collaboration, and long-term clarity</strong>.</p>
+<p>Luckily for R users, RStudio offers several useful features that let you use <strong>relative file paths</strong>, manage dependencies and isolate environments—reducing the risk of code breaking when files are moved or shared, and making it easy for collaborators or future lab members to pick up and understand past work. RStudio fully supports project-based workflows, making it easy to switch from one project to another, have many projects open at once, re-launch recently used ones, etc. This work style is so important that RStudio has an official concept of <strong>R Projects</strong>, and it is strongly recommended to use them. This also enables you to start thinking about projects as <strong>modular and self-contained</strong>.</p>
+<p>A quote from the opinionated Tidyverse blog post linked above:</p>
+<blockquote class="blockquote">
+<p>It’s like agreeing that we will all drive on the left or the right. A hallmark of civilization is following conventions that constrain your behavior a little, in the name of public safety. Use of a development environment</p>
+</blockquote>
+<p>For another insightful read going into detail about the philosophy of project-oriented workflows (with intriguing questions such as “what is the source of truth” and “where does your analysis live”), and absolute vs relative file paths, please read <a href="https://r4ds.hadley.nz/workflow-scripts.html">this chapter</a> from the Holy Bible for R programmers, the freely available textbook on R for Data Science by Hadley Wickham, Mine Çetinkaya-Rundel, and Garrett Grolemund.</p>
+<div class="callout callout-style-simple callout-tip no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>If you have been using commands such as <code>setwd("C:\Users\karthik\path\that\only\I\have")</code> and <code>rm(list = ls())</code>, shifting to a project-oriented workflow as recommended above will mean forsaking these commands. In addition, there are some other strong recommendations for working in RStudio, such as disabling the <code>Restore .RData into workspace at startup</code> option and changing the <code>Save workspace to .RData on exit:</code> option to “Never”. This ensures that each new R session starts with a blank slate, helping you catch errors more easily and enabling better reproducibility.</p>
+</div>
+</div>
+</div>
 </section>
-<section id="sec-rstudio-proj" class="level1">
-<h1>RStudio and project-oriented workflows</h1>
+<section id="other-resources-for-r" class="level2">
+<h2 class="anchored" data-anchor-id="other-resources-for-r">Other resources for R</h2>
+<p><a href="https://r4ds.hadley.nz/">Hadley’s textbook</a> mentioned above is, in many cases, the only resource you need given how comprehensive and user-friendly it is. However, for specific issues, questions or troubleshooting problems, it is worth searching on StackExchange portals like StackOverflow (coding-related) and CrossValidated (statistics-related). Additionally, you can also find nice specific tutorials on YouTube.</p>
+<p>Another strong recommendation for R programmers is <code>tidyverse</code>, which is a collection of opinionated R packages for various data science purposes. “Opinionated” here means that all the member packages share an underlying design philosophy, grammar, and data structures—which make R coding not only more intuitive, clean and stress-free, but also more enjoyable!</p>
+</section>
 </section>
 <section id="sec-git-github" class="level1">
 <h1>Git and GitHub</h1>
-<p><a href="https://git-scm.com/">Git</a> is an open-source version control system (VCS) that lives locally on your specified directories in your system. Think of it as an all-seeing eye that intelligently tracks changes in files. Because files in a project evolve in unbelievably complex ways, and often have multiple people making changes to them, Git becomes incredibly useful in managing the project itself.</p>
-<p>On the other hand, <a href="https://github.com">GitHub</a> is a cloud-based developer platform that allows distributed version control. It essentially leverages your locally living Git information and hosts it online, thereby allowing you to more efficiently and easily manage, track, collaborate and share your work. Although alternative platforms exist like GitLab and BitBucket, GitHub is the most popular and our lab too uses it for developing code, collaborating, and much else.</p>
+<p><a href="https://git-scm.com/">Git</a> is an open-source version control system (VCS) that lives locally on certain directories in your system (which you specify). Think of it as an all-seeing eye that intelligently tracks changes in files. Because files in a project evolve in unbelievably complex ways, and often have multiple people making changes to them, Git becomes incredibly useful in managing the project itself.</p>
+<p>On the other hand, <a href="https://github.com">GitHub</a> is a cloud-based developer platform that allows distributed version control. It essentially takes your locally living Git information and hosts it online, thereby allowing you to more efficiently and easily manage, track, collaborate and share your work. Although alternative platforms exist like GitLab and BitBucket, GitHub is the most popular and <a href="https://github.com/montanolab">our lab too uses it</a> for developing code, collaborating, and much else.</p>
 <p>Delve deeper:</p>
 <ul>
 <li><a href="https://www.youtube.com/watch?v=eWxxfttcMts">Git lets you time travel</a></li>
@@ -260,8 +279,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="cloning-a-repository-in-rstudio" class="level2">
 <h2 class="anchored" data-anchor-id="cloning-a-repository-in-rstudio">Cloning a repository (in RStudio)</h2>
-<p>One of the biggest advantages to using Git and GitHub is how easy it becomes to share and collaborate on projects. The fundamental step here to get familiarised with is cloning a GitHub repository.</p>
-<p>By now, you have a basic idea about project-oriented workflows (<a href="#sec-rstudio-proj" class="quarto-xref">Section&nbsp;3</a>) and Git repositories (<a href="#sec-git-github" class="quarto-xref">Section&nbsp;4</a>). Cloning a GitHub repository is essentially creating a local copy of the project using the latest version available on the “remote”. You will recall the two methods of authenticating the Git-GitHub connection (<a href="#sec-gh-auth" class="quarto-xref">Section&nbsp;4.2</a>); depending on which one you chose for your GitHub account authentication, select the appropriate URL to clone the repo.</p>
+<p>One of the biggest advantages to using Git and GitHub is how easy it becomes to share and collaborate on projects. The fundamental step to get familiarised with here is cloning a GitHub repository.</p>
+<p>By now, you have a basic idea about project-oriented workflows (<a href="#sec-rstudio-proj" class="quarto-xref">Section&nbsp;2.1</a>) and Git repositories (<a href="#sec-git-github" class="quarto-xref">Section&nbsp;3</a>). Cloning a GitHub repository is essentially creating a local copy of the project using the latest version available on the “remote”. You will recall the two methods of authenticating the Git-GitHub connection (<a href="#sec-gh-auth" class="quarto-xref">Section&nbsp;3.2</a>); depending on which one you chose for your GitHub account authentication, select the appropriate URL to clone the repo.</p>
 <ol type="1">
 <li>Go to the repository you want to clone, e.g., <a href="https://github.com/montanolab/toolbox">https://github.com/montanolab/toolbox</a></li>
 <li>Click on the green button saying <code>&lt;&gt; Code</code></li>
@@ -281,15 +300,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Once again, repeated practice is required to get comfortable with this workflow. Read more about commits <a href="https://docs.github.com/en/pull-requests/committing-changes-to-your-project/creating-and-editing-commits/about-commits">here</a>.</p>
 </section>
 </section>
-<section id="computation" class="level1">
-<h1>Computation</h1>
+<section id="bibliography-management" class="level1">
+<h1>Bibliography management</h1>
+<p>Bibliography management software is essential in research, for organizing references, inserting citations, and collaborating on literature reviews or manuscripts. Manually typing out individual references in your bibliography, and rewriting them when your text is reordered or your target journal (and its formatting requirement) changes, are all things of the past. Tools like Zotero, Mendeley, and EndNote all allow users to collect, store, and format references in a variety of citation styles. Most journals’ citation formatting requirements can be found in <a href="https://editor.citationstyles.org/searchByName/">citation style repositories</a>, which are collections of individual Citation Style Language (<code>.csl</code>) files.</p>
+<p>EndNote is commonly used in institutional settings for its integration with library databases and advanced features (but is not free), while Mendeley is known for its PDF annotation tools and cloud storage, though its development has slowed since being acquired by Elsevier. (See <a href="https://talyarkoni.org/blog/2016/12/12/why-i-still-wont-review-for-or-publish-with-elsevier-and-think-you-shouldnt-either/">one article</a> about the broader issues with Elsevier.)</p>
+<p><strong>Zotero</strong>, however, stands out in being <strong>free and open source</strong>, and its strong browser integration and ease of use. It supports seamless citation and bibliography insertion in Word, LibreOffice, and Google Docs (and even R/Quarto Markdown!), and can automatically generate shared group libraries—ideal for research labs. Zotero also respects user privacy, works well across platforms. Many users also use it for all their literature reading, owing to its clean and efficient PDF reading experience. For most academic users—especially in collaborative environments where open science is a value—Zotero offers the best combination of <strong>flexibility, transparency, and community support</strong>. See <a href="https://www.zotero.org/why">here</a> for more on why, and why not, Zotero.</p>
+<p><em>Link to a tutorial on how to set up Zotero for a seamless and complete literature workflow coming soon…</em></p>
 </section>
-<section id="zenodo" class="level1">
-<h1>Zenodo</h1>
-<p>https://zenodo.org/communities/montanolab/ metadata title format</p>
-</section>
-<section id="zotero" class="level1">
-<h1>Zotero</h1>
+<section id="project-archival" class="level1">
+<h1>Project archival</h1>
+<p>Digital archival repositories like Zenodo, Dryad and Figshare play a vital role in open science by providing long-term, citable storage for datasets, code, and other research outputs. These platforms assign DOIs (Digital Object Identifiers), making materials easy to cite and discover, and are now standard components of data-sharing requirements for academic journals and funders.</p>
+<p>While all three are reputable, they differ slightly in focus. Dryad is geared specifically toward publishing datasets associated with scientific articles, particularly in ecology and biology, with an emphasis on metadata quality. Figshare offers broad support for diverse research outputs, including posters, figures, and negative results, and is often integrated with institutional repositories. Zenodo, developed by CERN and supported by the EU, is notable for its flexibility: it accepts code, data, and even full publications, integrates directly with GitHub (enabling strong version control), and is fully open-access. It does not charge for uploads, and promotes transparency while enabling proper citation of even small or non-traditional outputs.</p>
+<p>For ecology and evolutionary biology labs, Zenodo’s greater flexibility thus makes it an excellent choice—especially when paired with GitHub (and other project-oriented workflows detailed above) for seamless project archival. <a href="https://zenodo.org/communities/montanolab/">Montaño Lab uses Zenodo</a> to archive all outputs from the lab, such as data and code associated with research projects, as well as non-research outputs such as educational material and resources.</p>
+<p><em>Additional information such as best practices for data archival, metadata writing, etc. coming soon…</em></p>
 
 
 </section>
