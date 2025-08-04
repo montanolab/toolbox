@@ -1,0 +1,18 @@
+---
+title: "About"
+format: html
+engine: knitr # to execute R
+---
+
+This site was developed by Karthik Thrikkadeeri and Flavia Montaño-Centellas. Thanks to ___ for useful suggestions and feedback. 
+
+*The site was last updated on `r format(Sys.Date(), format = "%d %B %Y")`.*
+
+# Acknowledgements
+
+This documentation was created using inspiration and tips from various sources, some of which are listed below (others are location-specific links on other pages).
+
+- Website of GK Lab at LSU ([website](https://gklab.org/))
+- Website of Li Lab at University of Arizona ([website](https://www.dlilab.com/))
+- Zenodo Repository of Nature Conservation Foundation ([link](https://zenodo.org/communities/ncfindia/records?q=&l=list&p=1&s=10&sort=newest))
+- [Course webpage](https://rr.gklab.org/) for Reproducible research in ecology and evolution (BIOL 4800/7800 at LSU) by Gaurav Kandlikar

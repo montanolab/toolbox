@@ -8,7 +8,7 @@ website:
     left:
       - href: index.qmd
         text: Home
-      - acknowledgements.qmd
+      - about.qmd
 
 format:
   html:
@@ -18,5 +18,4 @@ format:
     css: styles.css
     toc: true
 
-
-
+reference-location: margin
